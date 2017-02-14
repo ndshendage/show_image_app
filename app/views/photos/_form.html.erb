@@ -1,0 +1,33 @@
+<%= form_for(photo, html: {class: 'model-form'}) do |f| %>
+  <% if photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tag_line %>
+    <%= f.text_field :tag_line, class: "form-control", placeholder: "Add Tag Line for Photo" %>
+  </div>
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control", placeholder: "Upload Image"%>
+  </div>
+  <% if @album_id.present?%>
+    <%= f.hidden_field :album_id, :value => @album_id %>
+  <%else%>
+  <div class="field">
+   <label ><%= "Select Album"%></label>
+   <%= f.collection_select :album_id, @albums, :id, :name, class: "form-control" %>
+   </div>
+  <%end%>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

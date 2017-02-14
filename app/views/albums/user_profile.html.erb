@@ -1,0 +1,15 @@
+<div class="title well well-sm">
+<h3 class="text-center "> My all Albums</h3>
+<%= link_to "Create New Album", new_album_path, class: "btn btn-sm btn-under-well"%>
+</div>
+
+
+  <% @my_albums.each do |album| %>
+    <div class="my-albums">
+      <%= link_to (image_tag album.cover_photo_url, alt: "img_url", class: "my-albums") , photos_url(album_id: album.id) %>
+      <strong> <%= album.user.first_name%></strong>
+      <strong> <%=link_to "Add Photo", new_photo_path(album_id: album.id)%></strong>
+        <%= link_to 'Edit', edit_album_path(album) %>
+        <%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  <% end %>

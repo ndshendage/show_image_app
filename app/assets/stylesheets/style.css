@@ -1,0 +1,97 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
+
+*, *:before,
+*:after{
+	font-family: 'Open Sans', sans-serif, FontAwesome;
+	font-size: 12px;
+}
+
+html, body{
+	-webkit-transform: all ease-in 0.4s;
+	-moz-transform: all ease-in 0.4s;
+	transform: all ease-in 0.4s;
+	font-family: 'Open Sans', sans-serif;
+	color: #222;
+}
+body{
+  background: #f7f7f7 url(blue-background.jpg) center top no-repeat;
+  width: 90%;
+  min-height: 100%;
+  margin: auto;
+}
+
+input::-webkit-input-placeholder {
+  color: #a4a4a4;
+}
+
+::-moz-placeholder {
+  color: #a4a4a4;
+}
+
+:-ms-input-placeholder {
+  color: #a4a4a4;
+}
+
+::-webkit-input-placeholder {
+  color: #a4a4a4;
+}
+
+::placeholder {
+  color: #a4a4a4;
+}
+
+
+#root-nav{
+	height: 30px;
+	margin-top: 20px;
+    
+}
+
+#root-nav a{
+  font-size: 20px;
+  color: mediumblue;
+}
+#root-nav li{
+  padding-left: 28px;
+}
+.message{
+  height:30px;
+  width: 80%;
+  margin: 10px auto;
+  background-color: green;
+
+}
+
+.navbar-nav{
+  width: 100%;
+  background-color: wheat;
+  margin-bottom: 15px;
+  min-height: 40px;
+}
+
+.my-albums{
+  width: 235px;
+  height: 170px;
+  float: left;
+  padding-right: 20px;
+}
+.center-form{
+  width: 70%;
+  margin: auto;
+}
+.album-list{
+  width: 250px;
+  height: 180px;
+  margin-left: 20px;
+  float: left;
+}
+.btn-under-well{
+  float: right;
+  margin-top: -42px;
+}
+.btn-under-well a{
+  color: white;
+}
+.options{
+  height:30px;
+}

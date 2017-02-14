@@ -1,0 +1,15 @@
+<div class="title well well-sm">
+<h3 class="text-center"> My Photos</h3>
+<%= link_to "Add New Photos", new_photo_path, class: "btn btn-sm btn-under-well"%>
+</div>
+
+  <% @photos.each do |photo| %>
+    <div class="my-albums">
+      <%= image_tag photo.image_url, alt: "img_url", class: "my-albums" %>
+        <div class="options">
+        <%= link_to 'Show', photo %>
+        <%= link_to 'Edit', edit_photo_path(photo) %>
+        <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' }%>
+        </div>
+        </div>
+        <%end%>

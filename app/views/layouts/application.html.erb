@@ -1,0 +1,48 @@
+#<!DOCTYPE html>
+<html>
+  <head>
+    <title>ImageShowApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <div class="container-fluid">
+
+
+<nav class="navbar navbar-default" id="root-nav">
+ 
+  <ul class="nav navbar-nav " >
+
+      <li ><a href="/"> Home</a></li>
+      <% if user_signed_in?%>
+        <li> <%= link_to "LogOut", destroy_user_session_path, method: :delete%>
+        </li>
+        <li> <%= link_to "Visit My Profile",  my_albums_albums_path%>
+        </li>
+        <li> <%= link_to "Add Photo", new_photo_path %>
+        </li>
+      <%else%> 
+        <li class="pull-right"> <a href="/users/sign_up"><%= "Register"%></a></li>
+        <li class="pull-right"> <a href="/users/sign_in"><%= "Login"%></a></li>
+       <%end%>
+
+       
+  </ul>
+  </nav>
+<%#= render 'shared/messages'%>
+      <div class="row-md-10">
+      <%= yield %>
+      </div>
+      <%if params.present?%>
+      <div class="params-data">
+        <%#= params.inspect%>
+      </div>
+      <%end%>
+<div id="layout-modal" class="modal fade"></div>
+</div>
+</body>
+  
+</html>
