@@ -4,10 +4,9 @@
 </div>
 
   <% @photos.each do |photo| %>
-    <div class="my-albums">
+    <div class="photo-block">
       <%= image_tag photo.image_url, alt: "img_url", class: "my-albums" %>
-        <div class="options">
-        <%= link_to 'Show', photo %>
+        <div class="owner-details">
         <%= link_to 'Edit', edit_photo_path(photo) %>
         <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' }%>
         </div>

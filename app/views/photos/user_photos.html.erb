@@ -1,0 +1,13 @@
+
+<div class="title well well-sm">
+<h3 class="text-center "> Users Photos</h3>
+</div>
+
+  <% @photos.each do |photo| %>
+    <div class="photo-block">
+      <%= image_tag photo.image_url, alt: "img_url", class: "my-albums" %>
+      <div class="owner-details">
+        <strong style="float: left; padding-left:9px">Owner: <%= photo.album.user.first_name%> Photo: <%= photo.image.file.file.split('/').pop %></strong>
+      </div>
+    </div>
+  <% end %>

@@ -1,12 +1,19 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-  before_action :set_album, only: [:index]
+  before_action :set_album, only: [:user_photos]
+  skip_before_action :authenticate_user!, only: [:user_photos]
+  #before_action :set_album, only: [:index]
 
   # GET /photos
   # GET /photos.json
   def index
-    @album_id = @album.id
-    @photos = @album.photos
+    if params[:album_id].present?
+      @album = Album.find(params[:album_id])
+      @album_id = @album.id
+      @photos = @album.photos
+    else
+      @photos = current_user.photos
+    end
   end
 
   # GET /photos/1
@@ -33,8 +40,8 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     respond_to do |format|
-      p "** i have constructed the photo as == #{@photo.inspect}"
-      if @photo.save!
+      @album_id = @photo.album_id
+      if @photo.save
         format.html { redirect_to photos_path(album_id: @photo.album_id), notice: 'Photo was successfully created.' }
         format.json { render :show, status: :created, location: @photo }
       else
@@ -73,11 +80,16 @@ class PhotosController < ApplicationController
     p "**** photos = #{@photos.inspect}"
   end
 
+  def user_photos
+    @photos = @album.photos
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
       @photo = Photo.find(params[:id])
     end
+
 
     def set_album
       p "i am from set_album and id i GET = #{params[:album_id]}"

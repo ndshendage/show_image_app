@@ -14,7 +14,7 @@ html, body{
 	color: #222;
 }
 body{
-  background: #f7f7f7 url(blue-background.jpg) center top no-repeat;
+  background-color: beige;
   width: 90%;
   min-height: 100%;
   margin: auto;
@@ -50,6 +50,7 @@ input::-webkit-input-placeholder {
 #root-nav a{
   font-size: 20px;
   color: mediumblue;
+  text-decoration: none;
 }
 #root-nav li{
   padding-left: 28px;
@@ -94,4 +95,45 @@ input::-webkit-input-placeholder {
 }
 .options{
   height:30px;
+}
+.photo-block{
+  width: 220px;
+  height: 200px;
+  float: left;
+  padding-right: 20px;
+  margin-bottom: 17px;
+  border: red 3px solid;
+  margin-right: 10px; 
+}
+.photo-block img{
+  width: 240px !important;
+}
+.my-albums img{
+  width: 240px !important;
+}
+.owner-details{
+  background-color: grey;
+  height:23px;
+  float: inherit;
+  padding-top: 7px;
+  text-align: center;
+  width: 240px;
+}
+.owner-details a{
+  text-decoration: none;
+  color: white;
+  padding-right: 10px;
+}
+.thumbnail > img {
+  display: block;
+  width: 240px !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+.header-right-links li{
+  float: right;
+  padding-top: 10px;
+}
+.bottom-links a{
+  color: white;
 }

@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:all_albums]
 
   # GET /albums
   # GET /albums.json
@@ -64,6 +65,10 @@ class AlbumsController < ApplicationController
   def user_profile
     @my_albums = current_user.albums
     p "my albums are = #{@my_albums.inspect}"
+  end
+
+  def all_albums
+    @albums = Album.all.order(id: :desc).limit(15)
   end
 
   private

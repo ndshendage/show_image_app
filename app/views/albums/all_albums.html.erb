@@ -1,0 +1,14 @@
+<div class="title well well-sm">
+<h3 class="text-center ">Users Album</h3>
+</div>
+
+  <% @albums.each do |album| %>
+    <div class="photo-block">
+      <%= link_to (image_tag album.cover_photo_url, alt: "album cover photo", class: "my-albums") , user_photos_photos_path(album_id: album.id), title: "Click Me to See the Photos"%>
+        <div class="owner-details">
+        <%owner = album.user%>
+        <strong style="float: left; padding-left:9px">Owner: <%= owner.first_name + owner.last_name%>Album: <%= album.name%></strong>
+      
+        </div>
+    </div>
+  <% end %>

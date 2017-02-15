@@ -1,13 +1,19 @@
 
 <div class="title well well-sm">
 <h3 class="text-center "> Photos from this album <%@album_id%></h3>
-<%= link_to "Add New Photo", new_photo_path(album_id: @album_id), class: "btn btn-sm btn-under-well"%>
+<%if @album_id.present?%>  
+  <%= link_to "Add New Photo", new_photo_path(album_id: @album_id), class: "btn btn-sm btn-under-well"%>
+  <%else%>
+    <%= link_to "Add New Photo", new_photo_path, class: "btn btn-sm btn-under-well"%>
+  <%end%>
 </div>
 
   <% @photos.each do |photo| %>
-    <div class="my-albums">
+    <div class="photo-block">
       <%= image_tag photo.image_url, alt: "img_url", class: "my-albums" %>
+      <div class="owner-details">
         <%= link_to 'Edit', edit_photo_path(photo) %>
         <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
     </div>
   <% end %>

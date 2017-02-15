@@ -1,15 +1,13 @@
 class Photo < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :album
-  before_save :check_album_size
+  before_validation :check_album_size, only: [:create]
 
 
   def check_album_size
-    p "**** I am in the before save ***** "
     photos = self.album.photos.count
-    p"and count is = #{photos}"
-    if photos > 2
-      return false
+    if photos > 25
+      errors.add(:total_photos, "in this album are more than 25 add in other album");
     end
   end
 end

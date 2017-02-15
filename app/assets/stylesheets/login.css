@@ -6,6 +6,7 @@
 .form-signin {
   max-width: 420px;
   padding: 30px 38px 66px;
+  padding-top: 0px;
   margin: 0 auto;
   background-color: #eee;
   border: 3px dotted rgba(0,0,0,0.1);  
@@ -86,6 +87,7 @@
 .model-form{
   max-width: 420px;
   padding: 30px 38px 66px;
+  padding-top: 0px;
   margin: 0 auto
   background-color: #eee;
   width: 90%;
@@ -110,6 +112,7 @@
   border-bottom-right-radius: 0;
   height: 35px;
   width: 70%;
+  margin-bottom: 20px;
 }
 
 .model-form input[type="text"] {

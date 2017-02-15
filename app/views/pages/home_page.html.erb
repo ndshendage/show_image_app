@@ -1,13 +1,15 @@
 <div class="title well well-sm">
 <h3 class="text-center">Latest Uploaded Photos</h3>
+<% if user_signed_in?%>
 <%= link_to "Add Photos To Your Profile", new_photo_path, class: "btn btn-sm btn-under-well"%>
+<%end%>
 </div>
 
   <% @last_photos.each do |photo| %>
-    <div class="my-albums">
+    <div class="photo-block">
       <%= image_tag photo.image_url, alt: "img_url", class: "my-albums" %>
-        <div class="options">
-          <strong> Uploaded_By : <%= photo.album.user.first_name + photo.album.user.last_name %></strong>
+        <div class="owner-details">
+          <strong class="text-center"> Uploaded_By : <%= photo.album.user.first_name + photo.album.user.last_name %></strong>
         </div>
     </div>
 <%end%>
