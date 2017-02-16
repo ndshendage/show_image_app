@@ -2,7 +2,6 @@
 <h3 class="model-form-heading">Edit Photo</h3>
 <hr class="colorgraph">
 <%= render 'form', photo: @photo %>
-
-<%= link_to 'Show', @photo %> |
-<%= link_to 'Back', photos_path %>
+ |
+<%= link_to 'Back', photos_path(album_id: @photo.album.id), class: "btn btn-default pull-right back-button" %>
 </div>

@@ -33,6 +33,7 @@ class PhotosController < ApplicationController
 
   # GET /photos/1/edit
   def edit
+    @albums = current_user.albums
   end
 
   # POST /photos

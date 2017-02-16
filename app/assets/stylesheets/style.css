@@ -137,3 +137,8 @@ input::-webkit-input-placeholder {
 .bottom-links a{
   color: white;
 }
+.back-button{
+  margin-top: -40px;
+  float: right;
+  margin-right: 48%;
+}
